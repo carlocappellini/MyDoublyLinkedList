@@ -33,6 +33,8 @@ public class MyLinkedList implements NodeList {
                     // current.next is null
                     current.setNext(newItem);
                     newItem.setPrevious(current);
+                    return true;
+
                 }
 
             } else if (comparison > 0) {
@@ -49,8 +51,12 @@ public class MyLinkedList implements NodeList {
                     this.root = newItem;
 
                 }
+                return true;
+
             } else {
                 System.out.println("Is already present, cannot add duplicates");
+                return false;
+
             }
 
         }
@@ -74,14 +80,14 @@ public class MyLinkedList implements NodeList {
                 } else {
                     currentItem.previous().setNext(currentItem.next());
 
-                    if (currentItem.next() != null){
+                    if (currentItem.next() != null) {
                         currentItem.next().setPrevious(currentItem.previous());
 
                     }
                 }
-return true;
+                return true;
             } else if (comparison < 0) {
-                //item to erase greater
+
                 currentItem = currentItem.next();
             } else {
                 return false;
